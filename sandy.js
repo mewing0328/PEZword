@@ -7,23 +7,26 @@ var generateBtn = document.querySelector("#generate");
 function writePassword() {
 
     //IF the password length is less than 8 OR more than 128 OR isNaN (means is not a number is true), THEN alert.
-    var PwLength = prompt("How long do you want your password?\n It needs to be at least 8 characters and no more than 128 characters.");
+    var PwLength = prompt("Hello! Welcome to the Secure Password tool. \n How long do you want your password?\n \n It needs to be at least 8 characters and no more than 128 characters.");
 
+    // Acceptance criteria requirement: "choose a length of at least 8 characters and no more than 128 characters"
+    if (parseInt(PwLength) < 8 || parseInt(PwLength) > 128 || (isNaN(PwLength))) { 
+      alert("Please enter a number that is at least 8 and at most 128.");
+    return;
+  }
 
     // Acceptance criteria requirement: "my input should be validated". IF the end user hits "Cancel", THEN an alert will prompt them to try again.
     if (PwLength == '' || PwLength == null){
-      alert("You canceled the password generator.\n Please try again by clicking the red 'Generate Password' button.");
+      alert("You canceled the password generator.\n \n Please try again by clicking the red 'Generate Password' button.");
       return;
     } else {
       confirm("You picked: " + PwLength + ". \n You password will be " + PwLength + " characters long.");
     } 
 
-    // Acceptance criteria requirement: "choose a length of at least 8 characters and no more than 128 characters"
-    if (parseInt(PwLength) < 8 || parseInt(PwLength) > 128 || (isNaN(PwLength))) { 
-        alert("Please enter a number that is at least 8 and at most 128.");
-      return;
-    }
+
       
+    alert("In the next prompts, you will be asked if you want special, numeric, uppercase, and lowercase characters. \n \n You must say YES to AT LEAST one of the character types.");
+
     // Acceptance criteria requirement: "my input should be validated". The end user chooses which characters to include in password.  
     var specialCharBoo = confirm("Do you want to include special characters in your password?\n YES = Press OK\n NO = Press Cancel");
     if (specialCharBoo == true){
@@ -56,7 +59,7 @@ function writePassword() {
     // Acceptance criteria requirement: "at least one character type should be selected"
     //IF the end user does not pick at lease one character type, then an ERROR will prompt them to pick at least one character type.
     if(specialCharBoo == false && numericBoo == false && upperCaseBoo == false && lowerCaseBoo == false){
-        alert("ERROR: The generator requires that AT LEAST ONE character type is selected.\n Please click OK for AT LEAST ONE of the characters types (special, numeric, upper case, and/or lower case characters.");
+        alert("ERROR:\n \n The generator requires that AT LEAST ONE character type is selected.\n Please click the red 'Generate Password' button to START OVER.");
         return;
     }
 
@@ -84,16 +87,13 @@ function writePassword() {
     }
 
     // Summary of special characters chosen
-    alert("The characters you chose for your password are: " + generatePassword + " \n \n Click OK to see result on the screen.");
+    alert("The characters you chose for your password are: " + generatePassword + " \n \n Click OK to see your custom SECURE PASSWORD on the browser screen.");
   
 // REPEAT!!! the random string depending on the number of characters chosen
 // Copied and edited this code from https://stackoverflow.com/questions/50672126/repeat-an-array-with-multiple-elements-multiple-times-in-javascript
 var arrayToRepeat = generatePassword;
 var numberOfRepeats = 22; //max is 128 characters so need to repeat at least 22 times
-
 var repeatedArray = [].concat(...Array(numberOfRepeats).fill(arrayToRepeat));
-
-
 
 // RANDOMIZE!!!!
 // Copied this function to randomize my string source: https://www.w3docs.com/snippets/javascript/how-to-randomize-shuffle-a-javascript-array.html

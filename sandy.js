@@ -84,7 +84,7 @@ function writePassword() {
     }
 
     // Summary of special characters chosen
-    alert("The characters you chose are: " + generatePassword);
+    alert("The characters you chose for your password are: " + generatePassword + " \n \n Click OK to see result on the screen.");
   
 // REPEAT!!! the random string depending on the number of characters chosen
 // Copied and edited this code from https://stackoverflow.com/questions/50672126/repeat-an-array-with-multiple-elements-multiple-times-in-javascript
@@ -93,7 +93,6 @@ var numberOfRepeats = 22; //max is 128 characters so need to repeat at least 22 
 
 var repeatedArray = [].concat(...Array(numberOfRepeats).fill(arrayToRepeat));
 
-console.log(repeatedArray);
 
 
 // RANDOMIZE!!!!
@@ -118,68 +117,21 @@ console.log(repeatedArray);
 // I redefined my array and randomize it
 var randomPassword = repeatedArray;
 randomize(randomPassword);
-console.log(randomPassword);
 
+// SLICE!!!! I sliced all the elements except for the last (depending on user input of length) 
+var thePassword = randomPassword.slice(randomPassword.length - PwLength);
 
-// SPLICE!!!! I spliced the end of the randomPassword string dependent on the chosen PwLength 
-randomPassword.splice(PwLength);
+// console.log to show the number of elements in the array match the PwLength chosen from the prompt
+console.log(thePassword);
 
-console.log(randomPassword);
+// REMOVE the commas in the array output text by using the join method
+var password = thePassword.join('');
+
+// document.querySelector researched on W3 schools and applied .innerHTML to replace the placeholder text in the html
+var passwordText = document.querySelector("#password").innerHTML = password;
+passwordText.valueOf = password;
 
  }
-
-
-/*
- for(var i = 0; i < PwLength; i++) {
-  rPw = generatePassword[i];
- }
-
-
-
-    // method join with seperator indicated as nothing instead of the default ,
-// .join('')
-
-  // declared a new variable called password and used the generatePassword output for this variable   
-  var randomPassword = generatePassword.join('')
-  
-
-
-  var password = randomPassword;
-  // document.querySelector researched on W3 schools and applied .innerHTML to replace the placeholder text in the html
-  var passwordText = document.querySelector("#password").innerHTML = password;
-  passwordText.valueOf = password;
-  */
-
 
 // Add event listener to generate button
 generateBtn.addEventListener("click", writePassword);
-
-
-
-
-/*
-```
-GIVEN I need a new, secure password
-
-WHEN I click the button to generate a password
-DONE ---- THEN I am presented with a series of prompts for password criteria
-
-WHEN prompted for password criteria
-DONE ---- THEN I select which criteria to include in the password
-
-WHEN prompted for the length of the password
-DONE ---- THEN I choose a length of at least 8 characters and no more than 128 characters
-
-WHEN asked for character types to include in the password
-DONE ---- THEN I confirm whether or not to include lowercase, uppercase, numeric, and/or special characters
-
-WHEN I answer each prompt
-DONE ---- THEN my input should be validated and at least one character type should be selected
-
-WHEN all prompts are answered
-THEN a password is generated that matches the selected criteria
-
-WHEN the password is generated
-THEN the password is either displayed in an alert or written to the page
-```
-*/ 

@@ -5,19 +5,19 @@ var generateBtn = document.querySelector("#generate");
 function writePassword() {
 
     //IF the password length is less than 8 OR more than 128 OR isNaN (means is not a number is true), THEN alert.
-    var userPwLength = prompt("How long do you want your password?\n It needs to be at least 8 characters and no more than 128 characters.");
+    var PwLength = prompt("How long do you want your password?\n It needs to be at least 8 characters and no more than 128 characters.");
 
 
     // Acceptance criteria requirement: "my input should be validated". IF the end user hits "Cancel", THEN an alert will prompt them to try again.
-    if (userPwLength == '' || userPwLength == null){
+    if (PwLength == '' || PwLength == null){
       alert("You canceled the password generator.\n Please try again by clicking the red 'Generate Password' button.");
       return;
     } else {
-      confirm("You picked: " + userPwLength + ". \n You password will be " + userPwLength + " characters long.");
+      confirm("You picked: " + PwLength + ". \n You password will be " + PwLength + " characters long.");
     } 
 
     // Acceptance criteria requirement: "choose a length of at least 8 characters and no more than 128 characters"
-    if (parseInt(userPwLength) < 8 || parseInt(userPwLength) > 128 || (isNaN(userPwLength))) { 
+    if (parseInt(PwLength) < 8 || parseInt(PwLength) > 128 || (isNaN(PwLength))) { 
         alert("Please enter a number that is at least 8 and at most 128.");
       return;
     }
@@ -63,6 +63,7 @@ function writePassword() {
     var upperCase = ["Q", "W", "E", "R", "T", "Y"];
     var lowerCase = ["z", "x", "c", "v", "b", "n", "m"];
     var generatePassword = [];
+    var rPw = [];
 
     //if(variable) is the same as if(variable == true)
     if(specialChar){
@@ -81,20 +82,63 @@ function writePassword() {
       var generatePassword = generatePassword.concat(lowerCase);
     }
 
+    // Summary of special characters chosen
+    alert("The characters you chose are: " + generatePassword);
+
+// Copied this function to randomize my string source: https://www.w3docs.com/snippets/javascript/how-to-randomize-shuffle-a-javascript-array.html
+ function randomize(values) {
+  let index = values.length,  randomIndex;
+
+  // While there remain elements to shuffle.
+  while (index != 0) {
+
+    // Pick a remaining element.
+    randomIndex = Math.floor(Math.random() * index);
+    index--;
+
+    // And swap it with the current element.
+    [values[index], values[randomIndex]] = [
+      values[randomIndex], values[index]];
+  }
+  return values;
+  }
+
+// I redefined my array and randomize it
+var randomPassword = generatePassword;
+randomize(randomPassword);
+console.log(randomPassword);
+
+// I spliced the end of the randomPassword string dependent on the chosen PwLength 
+randomPassword.splice(PwLength);
+
+console.log(randomPassword);
+
+//Shorten an array by a specific number of index
+
+ }
+
+
+/*
+ for(var i = 0; i < PwLength; i++) {
+  rPw = generatePassword[i];
+ }
+
+
+
     // method join with seperator indicated as nothing instead of the default ,
-    console.log(generatePassword.join(''));
-    alert("Your password is: " + generatePassword.join(''));
+// .join('')
 
   // declared a new variable called password and used the generatePassword output for this variable   
   var randomPassword = generatePassword.join('')
-
   
 
-  var password = generatePassword.join('');
+
+  var password = randomPassword;
   // document.querySelector researched on W3 schools and applied .innerHTML to replace the placeholder text in the html
   var passwordText = document.querySelector("#password").innerHTML = password;
   passwordText.valueOf = password;
-}
+  */
+
 
 // Add event listener to generate button
 generateBtn.addEventListener("click", writePassword);

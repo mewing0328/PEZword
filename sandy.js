@@ -1,18 +1,5 @@
-// me: prompt that asks how long is the password DONE
-// me: 8 needs to be converted to a string
-// me: alert saying that it needs to be over 8 characters
-
-// me: wrote out the variables for user options: confirm whether or not to 
-// me: include lowercase, uppercase, numeric, and/or special characters
 // Assignment Code
 var generateBtn = document.querySelector("#generate");
-
-var specialChar = [";", "$", "%", "&", "*",")", "~"];
-var numeric = ["1", "2", "3", "4", "5", "6", "7", "8", "9", "0"];
-var upperCase = ["Q", "W", "E", "R", "T", "Y"];
-var lowerCase = ["z", "x", "c", "v", "b", "n", "m"];
-var userChoices = [];
-
 
 // Write password to the #password input
 function writePassword() {
@@ -21,87 +8,93 @@ function writePassword() {
     var userPwLength = prompt("How long do you want your password?\n It needs to be at least 8 characters and no more than 128 characters.");
 
 
-    // Acceptance criteria requirement: "my input should be validated"
-    // IF the end user hits "Cancel", THEN an alert will prompt them to try again.
+    // Acceptance criteria requirement: "my input should be validated". IF the end user hits "Cancel", THEN an alert will prompt them to try again.
     if (userPwLength == '' || userPwLength == null){
       alert("You canceled the password generator.\n Please try again by clicking the red 'Generate Password' button.");
       return;
     } else {
-      confirm("You picked: " + userPwLength);
+      confirm("You picked: " + userPwLength + ". \n You password will be " + userPwLength + " characters long.");
     } 
 
+    // Acceptance criteria requirement: "choose a length of at least 8 characters and no more than 128 characters"
     if (parseInt(userPwLength) < 8 || parseInt(userPwLength) > 128 || (isNaN(userPwLength))) { 
         alert("Please enter a number that is at least 8 and at most 128.");
       return;
     }
       
-       
-    // Acceptance criteria requirement: "my input should be validated"
-    //The end user chooses which characters to include in password.  
-    var specProm = confirm("Do you want to include special characters in your password?\n YES = Press OK\n NO = Press Cancel");
-    if (specProm == true){
-      alert("You picked YES");
+    // Acceptance criteria requirement: "my input should be validated". The end user chooses which characters to include in password.  
+    var specialChar = confirm("Do you want to include special characters in your password?\n YES = Press OK\n NO = Press Cancel");
+    if (specialChar == true){
+      alert("You picked YES.\n Special characters WILL be included.");
     } else {
-      alert("You picked NO");
+      alert("You picked NO.\n Special characters WILL NOT be included.");
     }
 
-    var numericProm = confirm("Do you want to include numeric characters in your password?\n OK = YES and Cancel = NO");
-    if (numericProm == true){
-      alert("You picked YES");
+    var numeric = confirm("Do you want to include numeric characters in your password?\n YES = Press OK\n NO = Press Cancel");
+    if (numeric == true){
+      alert("You picked YES.\n Numeric characters WILL be included.");
     } else {
-      alert("You picked NO");
+      alert("You picked NO.\n Numeric characters WILL NOT be included.");
     }
 
-    var upperCaseProm = confirm("Do you want to include upper case characters in your password?\n OK = YES and Cancel = NO");
-    if (upperCaseProm == true){
-      alert("You picked YES");
+    var upperCase = confirm("Do you want to include upper case characters in your password?\n YES = Press OK\n NO = Press Cancel");
+    if (upperCase == true){
+      alert("You picked YES.\n Uppercase characters WILL be included.");
     } else {
-      alert("You picked NO");
+      alert("You picked NO.\n Uppercase characters WILL NOT be included.");
     }
 
-    var lowerCaseProm = confirm("Do you wan to include lower case characters in your password?\n OK = YES and Cancel = NO");
-    if (lowerCaseProm == true){
-      alert("You picked YES");
+    var lowerCase = confirm("Do you want to include lower case characters in your password?\n YES = Press OK\n NO = Press Cancel");
+    if (lowerCase == true){
+      alert("You picked YES.\n Lowercase characters WILL be included.");
     } else {
-      alert("You picked NO");
+      alert("You picked NO.\n Lowercase characters WILL NOT be included.");
     }
 
     // Acceptance criteria requirement: "at least one character type should be selected"
     //IF the end user does not pick at lease one character type, then an ERROR will prompt them to pick at least one character type.
-    if(specProm == false && numericProm == false && upperCaseProm == false && lowerCaseProm == false){
+    if(specialChar == false && numeric == false && upperCase == false && lowerCase == false){
         alert("ERROR: The generator requires that AT LEAST ONE character type is selected.\n Please click OK for AT LEAST ONE of the characters types (special, numeric, upper case, and/or lower case characters.");
         return;
     }
 
+    var specialChar = [";", "$", "%", "&", "*",")", "~"];
+    var numeric = ["1", "2", "3", "4", "5", "6", "7", "8", "9", "0"];
+    var upperCase = ["Q", "W", "E", "R", "T", "Y"];
+    var lowerCase = ["z", "x", "c", "v", "b", "n", "m"];
+    var userChoices = [];
 
-
-    if(specProm == true){
-      var test = userChoices.concat(specialChar);
+    //if(variable) is the same as if(variable == true)
+    if(specialChar){
+      var userChoices = userChoices.concat(specialChar);
     }
 
-    console.log(test);
-    alert("Your password is: " + test);
-
-    /*if(numericProm == true){
-      userChoices.concat(numeric);
+    if(numeric){
+      var userChoices = userChoices.concat(numeric);
     }
 
-    if(upperCaseProm == true){
-      userChoices.concat(upperCase);
+    if(upperCase){
+      var userChoices = userChoices.concat(upperCase);
     }
 
-    if(lowerCaseProm == true){
-      userChoices.concat(lowerCase);
-    }*/
+    if(lowerCase){
+      var userChoices = userChoices.concat(lowerCase);
+    }
+
+    // method join with seperator indicated as nothing instead of the default ,
+    console.log(userChoices.join(''));
+    alert("Your password is: " + userChoices.join(''));
+
+
 
   
 
 
-  /*var password = generatePassword();
+  var password = generatePassword();
 
   var passwordText = document.querySelector("#password");
   
-  passwordText.value = password;*/
+  passwordText.value = password;
 
 }
 

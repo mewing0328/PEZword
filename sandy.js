@@ -1,6 +1,8 @@
 // Assignment Code
 var generateBtn = document.querySelector("#generate");
 
+
+
 // Write password to the #password input
 function writePassword() {
 
@@ -23,29 +25,29 @@ function writePassword() {
     }
       
     // Acceptance criteria requirement: "my input should be validated". The end user chooses which characters to include in password.  
-    var specialChar = confirm("Do you want to include special characters in your password?\n YES = Press OK\n NO = Press Cancel");
-    if (specialChar == true){
+    var specialCharBoo = confirm("Do you want to include special characters in your password?\n YES = Press OK\n NO = Press Cancel");
+    if (specialCharBoo == true){
       alert("You picked YES.\n Special characters WILL be included.");
     } else {
       alert("You picked NO.\n Special characters WILL NOT be included.");
     }
 
-    var numeric = confirm("Do you want to include numeric characters in your password?\n YES = Press OK\n NO = Press Cancel");
-    if (numeric == true){
+    var numericBoo = confirm("Do you want to include numeric characters in your password?\n YES = Press OK\n NO = Press Cancel");
+    if (numericBoo == true){
       alert("You picked YES.\n Numeric characters WILL be included.");
     } else {
       alert("You picked NO.\n Numeric characters WILL NOT be included.");
     }
 
-    var upperCase = confirm("Do you want to include upper case characters in your password?\n YES = Press OK\n NO = Press Cancel");
-    if (upperCase == true){
+    var upperCaseBoo = confirm("Do you want to include upper case characters in your password?\n YES = Press OK\n NO = Press Cancel");
+    if (upperCaseBoo == true){
       alert("You picked YES.\n Uppercase characters WILL be included.");
     } else {
       alert("You picked NO.\n Uppercase characters WILL NOT be included.");
     }
 
-    var lowerCase = confirm("Do you want to include lower case characters in your password?\n YES = Press OK\n NO = Press Cancel");
-    if (lowerCase == true){
+    var lowerCaseBoo = confirm("Do you want to include lower case characters in your password?\n YES = Press OK\n NO = Press Cancel");
+    if (lowerCaseBoo == true){
       alert("You picked YES.\n Lowercase characters WILL be included.");
     } else {
       alert("You picked NO.\n Lowercase characters WILL NOT be included.");
@@ -53,7 +55,7 @@ function writePassword() {
 
     // Acceptance criteria requirement: "at least one character type should be selected"
     //IF the end user does not pick at lease one character type, then an ERROR will prompt them to pick at least one character type.
-    if(specialChar == false && numeric == false && upperCase == false && lowerCase == false){
+    if(specialCharBoo == false && numericBoo == false && upperCaseBoo == false && lowerCaseBoo == false){
         alert("ERROR: The generator requires that AT LEAST ONE character type is selected.\n Please click OK for AT LEAST ONE of the characters types (special, numeric, upper case, and/or lower case characters.");
         return;
     }
@@ -63,28 +65,38 @@ function writePassword() {
     var upperCase = ["Q", "W", "E", "R", "T", "Y"];
     var lowerCase = ["z", "x", "c", "v", "b", "n", "m"];
     var generatePassword = [];
-    var rPw = [];
 
     //if(variable) is the same as if(variable == true)
-    if(specialChar){
+    if(specialCharBoo == true){
       var generatePassword = generatePassword.concat(specialChar);
     }
 
-    if(numeric){
+    if(numericBoo == true){
       var generatePassword = generatePassword.concat(numeric);
     }
 
-    if(upperCase){
+    if(upperCaseBoo == true){
       var generatePassword = generatePassword.concat(upperCase);
     }
 
-    if(lowerCase){
+    if(lowerCaseBoo == true){
       var generatePassword = generatePassword.concat(lowerCase);
     }
 
     // Summary of special characters chosen
     alert("The characters you chose are: " + generatePassword);
+  
+// REPEAT!!! the random string depending on the number of characters chosen
+// Copied and edited this code from https://stackoverflow.com/questions/50672126/repeat-an-array-with-multiple-elements-multiple-times-in-javascript
+var arrayToRepeat = generatePassword;
+var numberOfRepeats = 22; //max is 128 characters so need to repeat at least 22 times
 
+var repeatedArray = [].concat(...Array(numberOfRepeats).fill(arrayToRepeat));
+
+console.log(repeatedArray);
+
+
+// RANDOMIZE!!!!
 // Copied this function to randomize my string source: https://www.w3docs.com/snippets/javascript/how-to-randomize-shuffle-a-javascript-array.html
  function randomize(values) {
   let index = values.length,  randomIndex;
@@ -104,16 +116,15 @@ function writePassword() {
   }
 
 // I redefined my array and randomize it
-var randomPassword = generatePassword;
+var randomPassword = repeatedArray;
 randomize(randomPassword);
 console.log(randomPassword);
 
-// I spliced the end of the randomPassword string dependent on the chosen PwLength 
+
+// SPLICE!!!! I spliced the end of the randomPassword string dependent on the chosen PwLength 
 randomPassword.splice(PwLength);
 
 console.log(randomPassword);
-
-//Shorten an array by a specific number of index
 
  }
 
@@ -171,4 +182,4 @@ THEN a password is generated that matches the selected criteria
 WHEN the password is generated
 THEN the password is either displayed in an alert or written to the page
 ```
-*/
+*/ 

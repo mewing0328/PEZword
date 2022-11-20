@@ -62,40 +62,38 @@ function writePassword() {
     var numeric = ["1", "2", "3", "4", "5", "6", "7", "8", "9", "0"];
     var upperCase = ["Q", "W", "E", "R", "T", "Y"];
     var lowerCase = ["z", "x", "c", "v", "b", "n", "m"];
-    var userChoices = [];
+    var generatePassword = [];
 
     //if(variable) is the same as if(variable == true)
     if(specialChar){
-      var userChoices = userChoices.concat(specialChar);
+      var generatePassword = generatePassword.concat(specialChar);
     }
 
     if(numeric){
-      var userChoices = userChoices.concat(numeric);
+      var generatePassword = generatePassword.concat(numeric);
     }
 
     if(upperCase){
-      var userChoices = userChoices.concat(upperCase);
+      var generatePassword = generatePassword.concat(upperCase);
     }
 
     if(lowerCase){
-      var userChoices = userChoices.concat(lowerCase);
+      var generatePassword = generatePassword.concat(lowerCase);
     }
 
     // method join with seperator indicated as nothing instead of the default ,
-    console.log(userChoices.join(''));
-    alert("Your password is: " + userChoices.join(''));
+    console.log(generatePassword.join(''));
+    alert("Your password is: " + generatePassword.join(''));
 
-
+  // declared a new variable called password and used the generatePassword output for this variable   
+  var randomPassword = generatePassword.join('')
 
   
 
-
-  var password = generatePassword();
-
-  var passwordText = document.querySelector("#password");
-  
-  passwordText.value = password;
-
+  var password = generatePassword.join('');
+  // document.querySelector researched on W3 schools and applied .innerHTML to replace the placeholder text in the html
+  var passwordText = document.querySelector("#password").innerHTML = password;
+  passwordText.valueOf = password;
 }
 
 // Add event listener to generate button

@@ -15,23 +15,59 @@ var lowerCase = ["z", "x", "c", "v", "b", "n", "m"];
 // Write password to the #password input
 function writePassword() {
 
-    //userPwLength prompt box asks end user to input # of characters 8-128 works
-    //conditional statement if the password length is less than 8 OR more than 128 OR isNaN (means is not a number is true) then alert.
-    var userPwLength = window.prompt("How long do you want your password? It needs to be at least 8 characters and no more than 128 characters.");
-    if (parseInt(userPwLength) < 8 || parseInt(userPwLength) > 128 || (isNaN(userPwLength)) || (userPwLenth == false)) { 
+    //IF the password length is less than 8 OR more than 128 OR isNaN (means is not a number is true), THEN alert.
+    var userPwLength = prompt("How long do you want your password?\n It needs to be at least 8 characters and no more than 128 characters.");
+
+
+    // Acceptance criteria requirement: "my input should be validated"
+    // IF the end user hits "Cancel", THEN an alert will prompt them to try again.
+    if (userPwLength == '' || userPwLength == null){
+      alert("You canceled the password generator.\n Please try again by clicking the red 'Generate Password' button.");
+      return;
+    } else {
+      confirm("You picked: " + userPwLength);
+    } 
+
+    if (parseInt(userPwLength) < 8 || parseInt(userPwLength) > 128 || (isNaN(userPwLength))) { 
         alert("Please enter a number that is at least 8 and at most 128.");
       return;
-    } 
-    
-    //confirm method will output true or false 
-    var specialChar = confirm("Do you want to include special characters in your password?\n OK = YES and Cancel = NO");
-    var numeric = confirm("Do you want to include numeric characters in your password?\n OK = YES and Cancel = NO");
-    var upperCase = confirm("Do you want to include upper case characters in your password?\n OK = YES and Cancel = NO");
-    var lowerCase = confirm("Do you wan to include lower case characters in your password?\n OK = YES and Cancel = NO");
+    }
+      
+       
+    // Acceptance criteria requirement: "my input should be validated"
+    //The end user chooses which characters to include in password.  
+    var specProm = confirm("Do you want to include special characters in your password?\n YES = Press OK\n NO = Press Cancel");
+    if (specProm == true){
+      alert("You picked YES");
+    } else {
+      alert("You picked NO");
+    }
 
-    // Acceptance criteria requirement: at least one character type should be selected. Below is an error that needs to be resolved.
-    if(specialChar == false && numeric == false && upperCase == false && lowerCase == false){
-        alert("ERROR: The generator requires that at least one character type is selected.\n Please click OK for at least one of the characters types (special, numeric, upper case, and/or lower case characters.");
+    var numericProm = confirm("Do you want to include numeric characters in your password?\n OK = YES and Cancel = NO");
+    if (numericProm == true){
+      alert("You picked YES");
+    } else {
+      alert("You picked NO");
+    }
+
+    var upperCaseProm = confirm("Do you want to include upper case characters in your password?\n OK = YES and Cancel = NO");
+    if (upperCaseProm == true){
+      alert("You picked YES");
+    } else {
+      alert("You picked NO");
+    }
+
+    var lowerCaseProm = confirm("Do you wan to include lower case characters in your password?\n OK = YES and Cancel = NO");
+    if (lowerCaseProm == true){
+      alert("You picked YES");
+    } else {
+      alert("You picked NO");
+    }
+
+    // Acceptance criteria requirement: "at least one character type should be selected"
+    //IF the end user does not pick at lease one character type, then an ERROR will prompt them to pick at least one character type.
+    if(specProm == false && numericProm == false && upperCaseProm == false && lowerCaseProm == false){
+        alert("ERROR: The generator requires that AT LEAST ONE character type is selected.\n Please click OK for AT LEAST ONE of the characters types (special, numeric, upper case, and/or lower case characters.");
         return;
     }
 
@@ -70,7 +106,7 @@ WHEN asked for character types to include in the password
 DONE ---- THEN I confirm whether or not to include lowercase, uppercase, numeric, and/or special characters
 
 WHEN I answer each prompt
-THEN my input should be validated and at least one character type should be selected
+DONE ---- THEN my input should be validated and at least one character type should be selected
 
 WHEN all prompts are answered
 THEN a password is generated that matches the selected criteria

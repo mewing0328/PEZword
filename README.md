@@ -1,6 +1,9 @@
 # Secure-Password
 A password generator that will output a random secure password dependent on end user inputs.
 
+Tasks Completed
+HTML: Updated the browser tab and h1 to reflect my unique application name. Also, added instructions to click on the red button.
+
 FOR THE DEMO gif:
 1. Show error alert if number is not 8-128 characters
 2. Show error alert if input is not a number for # of characters

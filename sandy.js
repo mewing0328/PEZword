@@ -11,6 +11,8 @@ var specialChar = [";", "$", "%", "&", "*",")", "~"];
 var numeric = ["1", "2", "3", "4", "5", "6", "7", "8", "9", "0"];
 var upperCase = ["Q", "W", "E", "R", "T", "Y"];
 var lowerCase = ["z", "x", "c", "v", "b", "n", "m"];
+var userChoices = [];
+
 
 // Write password to the #password input
 function writePassword() {
@@ -71,8 +73,28 @@ function writePassword() {
         return;
     }
 
-    /* ! At least one character type should be selected - Make an if then statement that if 
-    specialChar, numeric, upperCase, and lowerCase are false then alert message and return. */
+
+
+    if(specProm == true){
+      var test = userChoices.concat(specialChar);
+    }
+
+    console.log(test);
+    alert("Your password is: " + test);
+
+    /*if(numericProm == true){
+      userChoices.concat(numeric);
+    }
+
+    if(upperCaseProm == true){
+      userChoices.concat(upperCase);
+    }
+
+    if(lowerCaseProm == true){
+      userChoices.concat(lowerCase);
+    }*/
+
+  
 
 
   /*var password = generatePassword();

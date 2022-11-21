@@ -1,21 +1,18 @@
-// Assignment Code
+// Button - see html for id="generate"
 var generateBtn = document.querySelector("#generate");
 
-
-
-// Write password to the #password input
+// Write password to the #password input - see html for id="password"
 function writePassword() {
-
-    //IF the password length is less than 8 OR more than 128 OR isNaN (means is not a number is true), THEN alert.
-    var PwLength = prompt("Hello! Welcome to the Secure Password tool. \n How long do you want your password?\n \n It needs to be at least 8 characters and no more than 128 characters.");
-
-    // Acceptance criteria requirement: "choose a length of at least 8 characters and no more than 128 characters"
+    // Acceptance criteria requirement: "THEN I am presented with a series of prompts for password criteria" && "THEN I choose a length of at least 8 characters and no more than 128 characters"
+    var PwLength = prompt("Hello! Welcome to the Secure Password tool.\n \n How long do you want your password?\n It needs to be at least 8 characters and no more than 128 characters.");
+   
+    //IF the password length is less than 8 OR more than 128 OR isNaN (means "is not a number" is true), THEN alert.
     if (parseInt(PwLength) < 8 || parseInt(PwLength) > 128 || (isNaN(PwLength))) { 
       alert("Please enter a number that is at least 8 and at most 128.");
     return;
   }
 
-    // Acceptance criteria requirement: "my input should be validated". IF the end user hits "Cancel", THEN an alert will prompt them to try again.
+    // IF the end-user hits "Cancel", THEN an alert will prompt them to try again.
     if (PwLength == '' || PwLength == null){
       alert("You canceled the password generator.\n \n Please try again by clicking the red 'Generate Password' button.");
       return;
@@ -24,10 +21,10 @@ function writePassword() {
     } 
 
 
-      
+    // Acceptance criteria requirement: "THEN I select which criteria to include in the password" && "THEN I confirm whether or not to include lowercase, uppercase, numeric, and/or special characters" 
     alert("In the next prompts, you will be asked if you want special, numeric, uppercase, and lowercase characters. \n \n You must say YES to AT LEAST one of the character types.");
 
-    // Acceptance criteria requirement: "my input should be validated". The end user chooses which characters to include in password.  
+    // Acceptance criteria requirement: "THEN my input should be validated [...]"
     var specialCharBoo = confirm("Do you want to include special characters in your password?\n YES = Press OK\n NO = Press Cancel");
     if (specialCharBoo == true){
       alert("You picked YES.\n Special characters WILL be included.");
@@ -56,8 +53,8 @@ function writePassword() {
       alert("You picked NO.\n Lowercase characters WILL NOT be included.");
     }
 
-    // Acceptance criteria requirement: "at least one character type should be selected"
-    //IF the end user does not pick at lease one character type, then an ERROR will prompt them to pick at least one character type.
+    // Acceptance criteria requirement: "THEN [...] at least one character type should be selected"
+    //IF the end-user does not pick at least one character type, then an ERROR will prompt them to pick at least one character type.
     if(specialCharBoo == false && numericBoo == false && upperCaseBoo == false && lowerCaseBoo == false){
         alert("ERROR:\n \n The generator requires that AT LEAST ONE character type is selected.\n Please click the red 'Generate Password' button to START OVER.");
         return;
@@ -87,7 +84,7 @@ function writePassword() {
     }
 
     // Summary of special characters chosen
-    alert("The characters you chose for your password are: " + generatePassword + " \n \n Click OK to see your custom SECURE PASSWORD on the browser screen.");
+    alert("The characters you chose for your password are: " + generatePassword + " \n \n Click OK to see the password that PEZword created for you.");
   
 // REPEAT!!! the random string depending on the number of characters chosen
 // Copied and edited this code from https://stackoverflow.com/questions/50672126/repeat-an-array-with-multiple-elements-multiple-times-in-javascript
@@ -127,11 +124,13 @@ console.log(thePassword);
 // REMOVE the commas in the array output text by using the join method
 var password = thePassword.join('');
 
-// document.querySelector researched on W3 schools and applied .innerHTML to replace the placeholder text in the html
+// document.querySelector researched W3 schools and applied .innerHTML to replace the placeholder text in the html
 var passwordText = document.querySelector("#password").innerHTML = password;
+
+// Acceptance Criteria Requirement: "THEN a password is generated that matches the selected criteria"
 passwordText.valueOf = password;
 
  }
 
-// Add event listener to generate button
+// Acceptance Criteria Requirement: "THEN the password is either displayed in an alert or written to the page" -- the alert summarizes the characters used && the page displays the password
 generateBtn.addEventListener("click", writePassword);

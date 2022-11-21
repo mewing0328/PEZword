@@ -39,14 +39,14 @@ function writePassword() {
       alert("You clicked NO.\n Numeric characters WILL NOT be included.");
     }
 
-    var upperCaseBoo = confirm("Do you want to include upper case characters in your password?\n YES = Press OK\n NO = Press Cancel");
+    var upperCaseBoo = confirm("Do you want to include uppercase characters in your password?\n YES = Press OK\n NO = Press Cancel");
     if (upperCaseBoo == true){
       alert("You clicked YES.\n Uppercase characters WILL be included.");
     } else {
       alert("You clicked NO.\n Uppercase characters WILL NOT be included.");
     }
 
-    var lowerCaseBoo = confirm("Do you want to include lower case characters in your password?\n YES = Press OK\n NO = Press Cancel");
+    var lowerCaseBoo = confirm("Do you want to include lowercase characters in your password?\n YES = Press OK\n NO = Press Cancel");
     if (lowerCaseBoo == true){
       alert("You clicked YES.\n Lowercase characters WILL be included.");
     } else {

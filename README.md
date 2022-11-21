@@ -23,7 +23,7 @@ JavaScript:
 ```
 
 ## Links
-[My Deployed Website](placeholder)
+[My Deployed Website](https://mewing0328.github.io/PEZword/)
 
 [My Code Repository](https://github.com/mewing0328/PEZword)
 

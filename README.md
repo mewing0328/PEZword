@@ -25,7 +25,7 @@ JavaScript:
 ## Links
 [My Deployed Website](placeholder)
 
-[My Code Repository](placeholder)
+[My Code Repository](https://github.com/mewing0328/PEZword)
 
 ## Demonstration 
 ### GIFS 

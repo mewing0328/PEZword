@@ -5,7 +5,7 @@ var generateBtn = document.querySelector("#generate");
 function writePassword() {
 
     // Acceptance criteria requirement: "THEN I am presented with a series of prompts for password criteria" && "THEN I choose a length of at least 8 characters and no more than 128 characters"
-    var PwLength = prompt("Hello! Welcome to the Secure Password tool.\n \n How long do you want your password?\n It needs to be at least 8 characters and no more than 128 characters.");
+    var PwLength = prompt("Hello, welcome to PEZword! \nThe password tool for your random password needs.\n \n How long do you want your password?\n It needs to be at least 8 characters and no more than 128 characters.");
    
     // IF the password length (var PwLength) is less than 8 OR more than 128 OR isNaN (means "is not a number" is true), THEN alert.
     if (parseInt(PwLength) < 8 || parseInt(PwLength) > 128 || (isNaN(PwLength))) { 
@@ -18,7 +18,7 @@ function writePassword() {
       alert("You canceled the password generator.\n \n Please try again by clicking the red 'Generate Password' button.");
       return;
     } else {
-      confirm("You picked: " + PwLength + ". \n You password will be " + PwLength + " characters long.");
+      confirm("You inputted: " + PwLength + ". \n You password will be " + PwLength + " characters long.");
     } 
 
     // Acceptance criteria requirement: "THEN I select which criteria to include in the password" && "THEN I confirm whether or not to include lowercase, uppercase, numeric, and/or special characters" 
@@ -27,30 +27,30 @@ function writePassword() {
     // Acceptance criteria requirement: "THEN my input should be validated [...]"
     var specialCharBoo = confirm("Do you want to include special characters in your password?\n YES = Press OK\n NO = Press Cancel");
     if (specialCharBoo == true){
-      alert("You picked YES.\n Special characters WILL be included.");
+      alert("You clicked YES.\n Special characters WILL be included.");
     } else {
-      alert("You picked NO.\n Special characters WILL NOT be included.");
+      alert("You clicked NO.\n Special characters WILL NOT be included.");
     }
 
     var numericBoo = confirm("Do you want to include numeric characters in your password?\n YES = Press OK\n NO = Press Cancel");
     if (numericBoo == true){
-      alert("You picked YES.\n Numeric characters WILL be included.");
+      alert("You clicked YES.\n Numeric characters WILL be included.");
     } else {
-      alert("You picked NO.\n Numeric characters WILL NOT be included.");
+      alert("You clicked NO.\n Numeric characters WILL NOT be included.");
     }
 
     var upperCaseBoo = confirm("Do you want to include upper case characters in your password?\n YES = Press OK\n NO = Press Cancel");
     if (upperCaseBoo == true){
-      alert("You picked YES.\n Uppercase characters WILL be included.");
+      alert("You clicked YES.\n Uppercase characters WILL be included.");
     } else {
-      alert("You picked NO.\n Uppercase characters WILL NOT be included.");
+      alert("You clicked NO.\n Uppercase characters WILL NOT be included.");
     }
 
     var lowerCaseBoo = confirm("Do you want to include lower case characters in your password?\n YES = Press OK\n NO = Press Cancel");
     if (lowerCaseBoo == true){
-      alert("You picked YES.\n Lowercase characters WILL be included.");
+      alert("You clicked YES.\n Lowercase characters WILL be included.");
     } else {
-      alert("You picked NO.\n Lowercase characters WILL NOT be included.");
+      alert("You clicked NO.\n Lowercase characters WILL NOT be included.");
     }
 
     // Acceptance criteria requirement: "THEN [...] at least one character type should be selected"

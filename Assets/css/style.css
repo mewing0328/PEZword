@@ -25,10 +25,12 @@ body {
 
 header {
   text-align: center;
-  margin: 20px;
+  margin: 22px;
   color: hsl(206, 17%, 28%);
   background-image: url(../images/Gradient.png);
-  border-radius: 10px;
+  border-radius: 5px;
+  max-width: 800px;
+  margin: 0 auto;
 }
 
 h1 {
@@ -42,7 +44,7 @@ h1 {
   border-width: 1px;
   box-shadow: rgba(0, 0, 0, 0.15) 0px 2px 8px 0px;
   color: hsl(206, 17%, 28%);
-  font-size: 18px;
+  font-size: 16px;
   margin: 0 auto;
   max-width: 800px;
   padding: 30px 40px;

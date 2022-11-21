@@ -38,7 +38,7 @@ The following GIFs demonstrate the web application's appearance and functionalit
     - Prompt buttons are defined and inputs are confirmed with alerts
     - Password is shown on the page replacing the placeholder text
 
-<img src=./Assets/images/PEZword%20GIF.gif style="width:30rem">
+<img src=./Assets/images/PEZword%20GIF.gif style="width:50rem">
 <br></br>
 
 #### Demo 2 Below: Show error alerts for: 
@@ -47,13 +47,13 @@ The following GIFs demonstrate the web application's appearance and functionalit
     - if the input is not a number for the number of characters
     - if "Cancel" is chosen for all special characters: At least one character type is required
 
-<img src=./Assets/images/PEZword%20GIF%20Errors.gif style="width:30rem">
+<img src=./Assets/images/PEZword%20GIF%20Errors.gif style="width:50rem">
 <br></br>
 
 ### Screenshots
 The PEZword application on the browser
 <br></br>
-<img src=./Assets/images/PEZword%20Screenshot.jpg style="width:30rem">
+<img src=./Assets/images/PEZword%20Screenshot.jpg style="width:50rem">
 
 ## Credit: References and Tutorials Utilized
 1. [Stack Overflow](https://stackoverflow.com/questions/50672126/repeat-an-array-with-multiple-elements-multiple-times-in-javascript): Repeat the array step (lines 92-94) - I copied and edited these lines. 

@@ -15,6 +15,11 @@ FOR THE DEMO gif:
 3. Show error alert if "Cancel" is chosen for all special characters
 4. 
 
+CREDIT: 
+1. Repeat the array step (lines 92-94): I copied and edited these lines of code from [Stack Overflow](https://stackoverflow.com/questions/50672126/repeat-an-array-with-multiple-elements-multiple-times-in-javascript)
+2. Randomize the new longer array step (lines 97-113): I copied and edited these lines of code from [W3docs](https://www.w3docs.com/snippets/javascript/how-to-randomize-shuffle-a-javascript-array.html)
+
+
 /*
 ```
 GIVEN I need a new, secure password
